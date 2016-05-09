@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @user.birthday %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @user.sex %>
+</p>
+
+<div>
+  <% @user.gifts.each do |gift| %>
+    <p>Name is: <%= link_to(gift.name, [@user, gift]) %></p>
+    <p>Price: <%= gift.price %></p>
+    <p>Description: <%= gift.descripption %></p>
+  <% end %>
+</div>
+
+<span class="gifts"><%= link_to 'My gifts', user_gifts_path(@user) %></span>
+
+<div class="navig">
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+</div>
